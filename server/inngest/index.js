@@ -6,7 +6,7 @@ import sendEmail from "../configs/nodeMailer.js";
 import { set } from "mongoose";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "movie-ticket-booking" });
+export const inngest = new Inngest({ id: "cinehouse" });
 
 // Inngest Function to save user data to a database
 const syncUserCreation = inngest.createFunction(
@@ -100,7 +100,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
                             <strong>Time:</strong> ${new Date(booking.show.showDateTime).toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata' })}
                         </p>
                         <p>Enjoy the show! 🍿</p>
-                        <p>Thanks for booking with us!<br/>— PopSeat Team</p>
+                        <p>Thanks for booking with us!<br/>— CineHouse</p>
                     </div>`
         })
     }
@@ -164,7 +164,7 @@ const sendShowReminders = inngest.createFunction(
                             </p>
                             <p>It starts in approximately <strong>8 hours</strong> - make sure you're ready!</p>
                             <br/>
-                            <p>Enjoy the show!<br/>PopSeat Team</p>
+                            <p>Enjoy the show!<br/>CineHouse</p>
                         </div>`
                 }))
             )
@@ -201,7 +201,7 @@ const sendNewShowNotifications = inngest.createFunction(
                     <h3 style="color: #F84565;">"${movieTitle}"</h3>
                     <p>Visit our website</p>
                     <br/>
-                    <p>Thanks,<br/>PopSeat Team</p>
+                    <p>Thanks,<br/>CineHouse</p>
                 </div>`;
 
                 await sendEmail({
